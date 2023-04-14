@@ -12,7 +12,7 @@ function App() {
           <Search />
           <div id="footer">
             <a
-              href="https://github.com/freylaura/weather-app"
+              href="https://github.com/freylaura/shecodes"
               target="_blank"
               rel="noopener noreferrer"
             >
