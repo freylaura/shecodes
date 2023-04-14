@@ -1,6 +1,6 @@
 import "./App.css";
 import Form from "./Form";
-import Search from "./Search";
+
 import React from "react";
 
 function App() {
@@ -9,7 +9,6 @@ function App() {
       <div className="container">
         <div className="container-outbox">
           <Form />
-          <Search />
           <div id="footer">
             <a
               href="https://github.com/freylaura/shecodes"

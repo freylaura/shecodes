@@ -1,5 +1,6 @@
 import "./App.css";
 import React from "react";
+import Forecast from "./Forecast";
 
 export default function Form() {
   return (
@@ -30,6 +31,25 @@ export default function Form() {
             Current
           </button>
         </form>{" "}
+      </div>
+      <div className="Form">
+        <div className="row">
+          <div className="col-3">
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              alt="Clear"
+            />
+          </div>
+          <div class="col-5">
+            <div id="location"></div>
+            <div id="date"></div>
+            <span id="temperature"></span>
+            <small class="units">
+              <a href="/#">°C</a>|<a href="/#">°F</a>
+            </small>
+          </div>
+          <Forecast />
+        </div>
       </div>
     </div>
   );
