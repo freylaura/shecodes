@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import Forecast from "./Forecast";
+
 import axios from "axios";
 
 export default function Form() {
@@ -9,9 +9,12 @@ export default function Form() {
 
   //////
   function showResult(response) {
+    console.log(response.data.wind.speed);
     setData({
       temperature: response.data.main.temp,
-      location: response.data.main.name,
+      location: response.data.name,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
     });
   }
   function handleSubmit(event) {
@@ -65,14 +68,27 @@ export default function Form() {
             />
           </div>
           <div className="col-5">
-            <div id="location"></div>
+            <div id="location">{data.location}</div>
             <div id="date"></div>
             <span id="temperature">{Math.round(data.temperature)}</span>
             <small className="units">
               <a href="/#">°C</a>|<a href="/#">°F</a>
             </small>
           </div>
-          <Forecast />
+          <div className="col-4">
+            <br />
+            <div id="description" className="small"></div>
+            <span className="small">Humidity:{data.humidity}</span>
+            <span id="humidity" className="small"></span>
+            <span className="small">%</span> <br />
+            <span className="small">Wind:{Math.round(data.wind)}</span>
+            <span id="wind" className="small"></span>
+            <span className="small">km/h </span>
+          </div>
+          <hr />
+          <div className="weather-forecast" id="forecast">
+            {" "}
+          </div>
         </div>
       </div>
     </div>
