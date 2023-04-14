@@ -4,7 +4,7 @@ import "./App.css";
 export default function Forecast() {
   return (
     <div className="Forecast">
-      <div class="col-4">
+      <div className="col-4">
         <br />
         <div id="description" className="small"></div>
         <span className="small">Humidity:</span>
