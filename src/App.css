@@ -1,38 +1,112 @@
-.App {
+.container-outbox {
+  /* position: relative;*/
+  margin: 30px auto;
+  max-width: 700px;
+  background: linear-gradient(-225deg, #5d9fff 0%, #c0dcf8 50%, #0480ec 100%);
+  font-family: "Source Code Pro", monospace;
+  font-size: 30px;
+  color: rgb(6, 6, 190);
+  border-radius: 30px;
+  padding: 20px;
+}
+button {
+  color: yellow;
+  position: relative;
+  left: 328px;
+  top: -43px;
+}
+#button-addon2 {
+  transition: all 200ms ease-in-out;
+}
+#button-addon2:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.tomorrow-pic,
+.saturday-pic,
+.sunday-pic {
+  width: 100px;
+  height: auto;
+  margin-left: 40px;
+}
+.col-4 {
+  line-height: 1.2;
+}
+
+#date {
+  font-size: 20px;
+}
+#location {
+  display: block;
+  font-size: 35px;
+  font-style: bold;
+}
+#temperature {
+  font-size: 50px;
+}
+#description::first-letter {
+  text-transform: capitalize;
+}
+.units {
+  position: relative;
+  top: -20px;
+}
+#inputSearching {
+  height: auto;
+  width: 300px;
+}
+
+.city {
+  font-size: 35px;
+  font-style: bold;
+}
+
+.small {
+  font-size: 20px;
+}
+
+#footer {
+  text-align: center;
+  font-size: small;
+  color: #7e96b1;
+}
+
+.active {
+  color: rgb(6, 6, 190);
+  cursor: default;
+  text-decoration: none;
+}
+
+.active:hover {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.forecast-temperature-max,
+.forecast-temperature-min {
+  font-size: 14px;
+}
+
+.forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.forecast-date {
+  font-size: 15px;
+}
+
+.weather-forecast {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#icon {
+  position: relative;
+  top: -23px;
+  right: 18px;
+  width: 180px;
+  height: auto;
 }
