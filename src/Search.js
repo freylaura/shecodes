@@ -16,7 +16,7 @@ export default function Search() {
           <div id="date"></div>
           <span id="temperature"></span>
           <small class="units">
-            <a>°C</a>|<a>°F</a>
+            <a href="/#">°C</a>|<a href="/#">°F</a>
           </small>
         </div>
         <div class="col-4">
