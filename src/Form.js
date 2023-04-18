@@ -4,25 +4,24 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Form() {
-  const [loaded, setLoaded] = useState(false); ///damit api nicht dauernd durchläuft
-  const [city, setCity] = useState();
   const [data, setData] = useState({});
+  const [loaded, setLoaded] = useState(false); ///damit api nicht dauernd durchläuft if else statement
 
   //////
   function showResult(response) {
-    console.log(response.data.wind.speed);
+    console.log(response.data.icon);
     setData({
       temperature: response.data.main.temp,
       location: response.data.name,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
+      description: response.data.weather[0].description,
+      icon: "https://openweathermap.org/img/wn/10d@2x.png",
     });
     setLoaded(true);
   }
 
   /////////
-  /*function showCity(event) {
-    setCity(event.target.value);*/
 
   ////////////
   if (loaded) {
@@ -59,10 +58,7 @@ export default function Form() {
         <div className="Form">
           <div className="row">
             <div className="col-3">
-              <img
-                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-                alt="Clear"
-              />
+              <img src={data.iconUrl} alt={data.description} />
             </div>
             <div className="col-5">
               <div id="location">{data.location} </div>
@@ -74,9 +70,9 @@ export default function Form() {
             </div>
             <div className="col-4">
               <div id="description" className="small">
-                {" "}
-                description
+                <strong>{data.description}</strong>
               </div>
+              <hr />
               <span className="small">Humidity:{data.humidity}</span>
               <span id="humidity" className="small"></span>
               <span className="small">%</span> <br />
@@ -94,7 +90,7 @@ export default function Form() {
     );
   } else {
     /*function handleSubmit(event) {*/
-
+    let city = "Berlin";
     let key = "96771e971243152d6b8948878c26adde";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
     axios.get(apiUrl).then(showResult);
