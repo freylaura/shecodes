@@ -17,7 +17,7 @@ function App() {
             >
               Open-source code{""}
             </a>
-            by Laura Frey
+            {""} by Laura Frey
           </div>
         </div>
       </div>

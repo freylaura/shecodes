@@ -17,7 +17,6 @@ button {
 }
 #button-addon2 {
   transition: all 200ms ease-in-out;
-  padding-right: 10px;
 }
 #button-addon2:hover {
   cursor: pointer;
