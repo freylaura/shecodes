@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
+import FormatedDate from "./FormatedDate";
 
 import axios from "axios";
 
@@ -9,9 +10,8 @@ export default function Form(props) {
 
   //////
   function showResult(response) {
-    console.log(response.data.icon);
     setData({
-      temperature: response.data.main.temp,
+      date: new Date(response.data.dt * 1000),
       location: response.data.name,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -62,7 +62,8 @@ export default function Form(props) {
             </div>
             <div className="col-5">
               <div id="location">{data.location} </div>
-              <div id="date">14.04.2023</div>
+              <FormatedDate date={data.date} />
+              <div id="date"></div>
               <span id="temperature">{Math.round(data.temperature)}</span>
               <small className="units">
                 <a href="/#">°C</a>|<a href="/#">°F</a>
