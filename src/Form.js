@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import axios from "axios";
 
-export default function Form() {
+export default function Form(props) {
   const [data, setData] = useState({});
   const [loaded, setLoaded] = useState(false); ///damit api nicht dauernd durchläuft if else statement
 
@@ -58,7 +58,7 @@ export default function Form() {
         <div className="Form">
           <div className="row">
             <div className="col-3">
-              <img src={data.iconUrl} alt={data.description} />
+              <img src={data.icon} alt={data.description} />
             </div>
             <div className="col-5">
               <div id="location">{data.location} </div>
@@ -69,7 +69,7 @@ export default function Form() {
               </small>
             </div>
             <div className="col-4">
-              <div id="description" className="small">
+              <div id="description" className="small text-capitalize">
                 <strong>{data.description}</strong>
               </div>
               <hr />
@@ -90,9 +90,9 @@ export default function Form() {
     );
   } else {
     /*function handleSubmit(event) {*/
-    let city = "Berlin";
+
     let key = "96771e971243152d6b8948878c26adde";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${key}&units=metric`;
     axios.get(apiUrl).then(showResult);
     console.log(apiUrl);
     //}
