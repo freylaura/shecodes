@@ -15,7 +15,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open-source code
+              Open-source code{""}
             </a>
             by Laura Frey
           </div>
