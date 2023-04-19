@@ -9,7 +9,6 @@ export default function Form(props) {
 
   //////
   function showResult(response) {
-    console.log(response.data);
     setData({
       ready: true,
       date: new Date(response.data.dt * 1000),
