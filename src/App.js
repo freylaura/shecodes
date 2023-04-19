@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="container-outbox">
-          <Form defaultCity="Mexico City" />
+          <Form defaultcity="Lisbon" />
           <div id="footer">
             <a
               href="https://github.com/freylaura/shecodes"

@@ -5,30 +5,31 @@ import FormatedDate from "./FormatedDate";
 import axios from "axios";
 
 export default function Form(props) {
-  const [data, setData] = useState({});
-  const [loaded, setLoaded] = useState(false); ///damit api nicht dauernd durchläuft if else statement
+  const [data, setData] = useState({ ready: false }); /// damit api nicht dauernd druchläuft sondern nur wenn wir ein call machen
 
   //////
   function showResult(response) {
+    console.log(response.data);
     setData({
+      ready: true,
       date: new Date(response.data.dt * 1000),
+      temperature: response.data.main.temp,
       location: response.data.name,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
       icon: "https://openweathermap.org/img/wn/10d@2x.png",
     });
-    setLoaded(true);
   }
 
   /////////
 
   ////////////
-  if (loaded) {
+  if (data.ready) {
     return (
       <div className="Form">
         <div className="input-group mb-2 search-for-a-city">
-          <form id="searchForm" /*onSubmit={handleSubmit}*/>
+          <form id="searchForm">
             <input
               id="inputSearching"
               type="search"
@@ -37,8 +38,8 @@ export default function Form(props) {
               aria-label="city search"
               aria-describedby="button-addon2"
               autoComplete="off"
-              /*onChange={showCity}*/
             />
+
             <button
               className="btn btn-outline-secondary me-3"
               type="submit"
@@ -90,13 +91,11 @@ export default function Form(props) {
       </div>
     );
   } else {
-    /*function handleSubmit(event) {*/
-
-    let key = "96771e971243152d6b8948878c26adde";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${key}&units=metric`;
+    let city = "Stockach";
+    let key = "bd3bb6534458ba51b48c49f5155745b6";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultcity}&appid=${key}&units=metric`;
     axios.get(apiUrl).then(showResult);
-    console.log(apiUrl);
-    //}
+
     return "loading....";
   }
 }
