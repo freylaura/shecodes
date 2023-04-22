@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FormatedDate from "./FormatedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherConversion from "./WeatherConversion";
