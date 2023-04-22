@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import FormatedDate from "./FormatedDate";
+
 import WeatherInfo from "./WeatherInfo";
 
 import axios from "axios";
@@ -56,7 +56,7 @@ export default function Form(props) {
             </button>
           </form>{" "}
         </div>
-        <WeatherInfo info={data} />
+        <WeatherInfo data={data} />
       </div>
     );
   } else {

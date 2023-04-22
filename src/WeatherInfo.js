@@ -1,31 +1,32 @@
 import React from "react";
+import FormatedDate from "./FormatedDate";
 
-export default function WeatherInfo() {
+export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="Form">
         <div className="row">
           <div className="col-3">
-            <img src={data.icon} alt={data.description} />
+            <img src={props.data.icon} alt={props.data.description} />
           </div>
           <div className="col-5">
-            <div id="location">{data.location} </div>
-            <FormatedDate date={data.date} />
+            <div id="location">{props.data.location} </div>
+            <FormatedDate date={props.data.date} />
             <div id="date"></div>
-            <span id="temperature">{Math.round(data.temperature)}</span>
+            <span id="temperature">{Math.round(props.data.temperature)}</span>
             <small className="units">
               <a href="/#">°C</a>|<a href="/#">°F</a>
             </small>
           </div>
           <div className="col-4">
             <div id="description" className="small text-capitalize">
-              <strong>{data.description}</strong>
+              <strong>{props.data.description}</strong>
             </div>
             <hr />
-            <span className="small">Humidity:{data.humidity}</span>
+            <span className="small">Humidity:{props.data.humidity}</span>
             <span id="humidity" className="small"></span>
             <span className="small">%</span> <br />
-            <span className="small">Wind:{Math.round(data.wind)}</span>
+            <span className="small">Wind:{Math.round(props.data.wind)}</span>
             <span id="wind" className="small"></span>
             <span className="small">km/h </span>
           </div>
