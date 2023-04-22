@@ -1,8 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-
 import WeatherInfo from "./WeatherInfo";
-
 import axios from "axios";
 
 export default function Form(props) {
@@ -18,18 +16,14 @@ export default function Form(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
-      icon: "https://openweathermap.org/img/wn/10d@2x.png",
+      icon: response.data.weather[0].icon,
     });
   }
   //////////
-  function search() {
-    let key = "bd3bb6534458ba51b48c49f5155745b6";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
-    axios.get(apiUrl).then(showResult);
-  }
+
   /////////
   function handleSubmit(event) {
-    event.prevent.Default();
+    event.preventDefault();
     search();
   }
   ////////////
@@ -38,6 +32,12 @@ export default function Form(props) {
   }
 
   /////////
+  function search() {
+    let key = "bd3bb6534458ba51b48c49f5155745b6";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+    axios.get(apiUrl).then(showResult);
+  }
+  //////
   if (data.ready) {
     return (
       <div className="Form">
