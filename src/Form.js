@@ -6,8 +6,8 @@ import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 
 export default function Form(props) {
-  const [data, setData] = useState({ ready: false }); /// damit api nicht dauernd druchläuft sondern nur wenn wir ein call machen
-
+  const [data, setData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultcity);
   //////
   function showResult(response) {
     setData({
@@ -21,15 +21,28 @@ export default function Form(props) {
       icon: "https://openweathermap.org/img/wn/10d@2x.png",
     });
   }
+  //////////
+  function search() {
+    let key = "bd3bb6534458ba51b48c49f5155745b6";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+    axios.get(apiUrl).then(showResult);
+  }
+  /////////
+  function handleSubmit(event) {
+    event.prevent.Default();
+    search();
+  }
+  ////////////
+  function handleSearchCity(event) {
+    setCity(event.target.value);
+  }
 
   /////////
-
-  ////////////
   if (data.ready) {
     return (
       <div className="Form">
         <div className="input-group mb-2 search-for-a-city">
-          <form id="searchForm">
+          <form id="searchForm" onSubmit={handleSubmit}>
             <input
               id="inputSearching"
               type="search"
@@ -38,6 +51,7 @@ export default function Form(props) {
               aria-label="city search"
               aria-describedby="button-addon2"
               autoComplete="off"
+              onChange={handleSearchCity}
             />
 
             <button
@@ -60,11 +74,6 @@ export default function Form(props) {
       </div>
     );
   } else {
-    let city = "Stockach";
-    let key = "bd3bb6534458ba51b48c49f5155745b6";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultcity}&appid=${key}&units=metric`;
-    axios.get(apiUrl).then(showResult);
-
-    return "loading....";
+    return search();
   }
 }
