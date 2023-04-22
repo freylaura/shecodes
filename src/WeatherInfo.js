@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import FormatedDate from "./FormatedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherConversion from "./WeatherConversion";
 import "./App.css";
 
 export default function WeatherInfo(props) {
@@ -20,10 +21,7 @@ export default function WeatherInfo(props) {
             <div id="location">{props.data.location} </div>
             <FormatedDate date={props.data.date} />
             <div id="date"></div>
-            <span id="temperature">{Math.round(props.data.temperature)}</span>
-            <small className="units">
-              <a href="/#">°C</a>|<a href="/#">°F</a>
-            </small>
+            <WeatherConversion celsius={props.data.temperature} />
           </div>
           <div className="col-4">
             <div id="description" className="small text-capitalize">
