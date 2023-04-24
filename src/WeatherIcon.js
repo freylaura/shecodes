@@ -34,8 +34,8 @@ export default function WeatherIcon(props) {
   return (
     <ReactAnimatedWeather
       icon={codeMapping[props.code]}
-      color="orange"
-      size={84}
+      color="darkgreen"
+      size={props.size}
       animate={true}
     />
   );
