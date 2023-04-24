@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function WeatherForecast(props) {
   ////////////
-  console.log(props.location); // das ist die
+
   function showResponse(response) {
     console.log(response.data);
   }
@@ -15,7 +15,7 @@ export default function WeatherForecast(props) {
 
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${key}&units=metric`;
   axios.get(apiUrl).then(showResponse);
-  console.log(apiUrl);
+
   ///////////////
   return (
     <div className="WeatherForecast">
